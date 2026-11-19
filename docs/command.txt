@@ -1,0 +1,9 @@
+1- Je construis ma branche : git switch -c {branch}    // {gros dossier}/{petit fichier} (EXEMPLE : 'initial/makefile')
+
+2- J'ajoute mes fichiers modifies (et uniquement ceux que j'ai modif) : git add {ton/tes fichiers} (a la main)
+
+3- Sauvegarder avec un vrai commentaire : git commit -m "{vrai com}"
+
+4- Push : git push -u origin {ta branch} (EXEMPLE: git push -u origin initial/makefile)
+
+5- Pour revenir sur branche main et tout recuperer pour etre a jour avec tout : git switch -c main && git pull
