@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafouche <mafouche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viroy <viroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 15:30:15 by viroy             #+#    #+#             */
-/*   Updated: 2026/11/19 15:39:53 by mafouche         ###   ########.fr       */
+/*   Updated: 2026/11/20 11:53:11 by viroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int		ft_hu(unsigned int c, char *base, int *pc);
 int		ft_putchar_fd(int i, int fd);
 int		ft_putnbr_fd(int nl, int fd, int *pc);
 int		ft_putstr_fd(char *s, int fd);
-int		n_args(char **av);
+int		ft_flag_nbr(int ac, char *av);
+int		ft_flag_parser(int ac, char *av);
 
 typedef	struct		s_all
 {

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag.c                                          :+:      :+:    :+:   */
+/*   ft_flag_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafouche <mafouche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viroy <viroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:25:09 by viroy             #+#    #+#             */
-/*   Updated: 2026/11/19 15:38:20 by mafouche         ###   ########.fr       */
+/*   Updated: 2026/11/20 11:56:29 by viroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_flag(int ac, char **av)
+int	ft_flag_nbr(int ac, char **av)
 {
 	int	i;
 
 	i = 0;
-	if (av[1] == '-')
-		return (1);
-	if (ft_isd(av[1]) == 1)
+	while (ac > 1)
 	{
-		i += 1;
+		if (ft_isd(av[ac][1]) == 1)
+			i += 1;
+		ac--;
 	}
-	
-	ac--;
-	return (0);
+	return (i);
 }
