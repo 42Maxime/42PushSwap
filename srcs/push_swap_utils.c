@@ -21,7 +21,7 @@ long	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	result = 0;
-	if (!nptr || ft_strlen(nptr) > 11) //Long = 19 chiffres max donc limite 11
+	if (!nptr || ft_strlen(nptr) > 11)
 		return (30000000000);
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == '+')
 		i++;

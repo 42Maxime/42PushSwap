@@ -27,18 +27,18 @@
 # define FLAG_ADAPTATIVE 8
 # define FLAG_BENCH 16
 
-typedef	struct		s_all
+typedef struct s_all
 {
-	int				*stack_a;
-	int				*stack_b;
-	int				tsa;
-	int				tsb;
-	int				sa;
-	int				sb;
-	int				n_args;
-	int				flag_type;
-	int				bench;
-}					t_all;
+	int			*stack_a;
+	int			*stack_b;
+	int			tsa;
+	int			tsb;
+	int			sa;
+	int			sb;
+	int			n_args;
+	int			flag_type;
+	int			bench;
+}				t_all;
 
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
