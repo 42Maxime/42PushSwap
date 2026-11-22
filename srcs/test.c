@@ -1,9 +1,9 @@
-int	test()
+int	test(char *test)
 {
 	int	i;
 
 	i = 0;
-	while (i < 10)
+	while (test[i])
 		i++;
-	return (0);
+	return (i);
 }
