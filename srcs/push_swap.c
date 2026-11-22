@@ -14,21 +14,11 @@
 
 int	main(int ac, char **av)
 {
-	int		i;
-	//long	nbr;
-	int		n_args;
-	int		flag_type;
-	int		*stack_a;
-	int		j;
+	t_all	all;
 
 	if (ft_protect(ac, av) != 1)
 		return (0);
-	i = 1;
-	n_args = ft_flag(ac, av);
-	flag_type = ft_flag_parser(ac, av);
-	stack_a = malloc(sizeof(int) * n_args);
-	if (!stack_a)
-		return (0);
+	init_all(&all, ac, av);
 	//Boucle while ci-dessous remplacee par ft_flag_parser et ft_flag_nbr
 	//while (av[i])
 	//{

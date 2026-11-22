@@ -27,6 +27,19 @@
 # define FLAG_ADAPTATIVE 8
 # define FLAG_BENCH 16
 
+typedef	struct		s_all
+{
+	int				*stack_a;
+	int				*stack_b;
+	int				tsa;
+	int				tsb;
+	int				sa;
+	int				sb;
+	int				n_args;
+	int				flag_type;
+	int				bench;
+}					t_all;
+
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *nptr);
@@ -40,12 +53,10 @@ int		ft_hu(unsigned int c, char *base, int *pc);
 int		ft_putchar_fd(int i, int fd);
 int		ft_putnbr_fd(int nl, int fd, int *pc);
 int		ft_putstr_fd(char *s, int fd);
-int		ft_flag_nbr(int ac, char *av);
-int		ft_flag_parser(int ac, char *av);
-
-typedef	struct		s_all
-{
-	int				i;
-}					t_all;
+int		ft_flag_nbr(int ac, char **av);
+int		ft_flag_parser(int ac, char **av);
+int		ft_strcmp(char *s1, char *s2);
+int		ft_protect(int ac, char **av);
+//void	init_all(t_all *all, int ac, char **av);
 
 #endif

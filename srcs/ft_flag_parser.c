@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	ft_flag_parser(int ac, char *av)
+int	ft_flag_parser(int ac, char **av)
 {
 	while (ac > 1)
 	{

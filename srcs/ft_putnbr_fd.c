@@ -14,9 +14,6 @@
 
 int	ft_putnbr_fd(int nl, int fd, int *pc)
 {
-	int		len;
-
-	len = 0;
 	if (nl == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
