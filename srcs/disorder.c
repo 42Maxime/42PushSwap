@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viroy <viroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 19:03:11 by viroy             #+#    #+#             */
-/*   Updated: 2026/11/19 13:59:46 by viroy            ###   ########.fr       */
+/*   Created: 2026/11/24 14:09:52 by mafouche          #+#    #+#             */
+/*   Updated: 2026/11/25 18:25:27 by viroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_putchar_fd(int i, int fd)
+float	compute_disorder(t_all *all)
 {
-	unsigned char	c;
+	float	mistakes;
+	float	total_pairs;
+	int	i;
 
-	c = (unsigned char)i;
-	write(fd, &c, 1);
-	return (1);
+	i = 1;
+	mistakes = 0;
+	total_pairs = 0;
+	while (i < all->tsa)
+	{
+		if (all->stack_a[i] < all->stack_a[i - 1])
+			mistakes += 1;
+		total_pairs += 1;
+		i++;
+	}
+	return (mistakes / total_pairs);
 }

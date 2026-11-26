@@ -1,0 +1,33 @@
+Ton algorithme fait ~70 000 appels parce que c'est un tri à bulles (Bubble Sort) qui fait plus de 250 allers-retours complets de 100 éléments, à raison d'environ 250 à 300 opérations par tour.
+Voici le détail mathématique exact de ce qui se passe dans ta boucle :
+
+1. Le coût d'un seul tour de while (compute_disorder(all) != 0)
+
+Pour une pile de 100 nombres, chaque passage complet de la boucle externe effectue :
+• Aller (A \(\rightarrow \) B) : 100 appels à pb + en moyenne 25 à 50 appels à sa.
+• Retour (B \(\rightarrow \) A) : 100 appels à pa + en moyenne 25 à 50 appels à sb.
+• Total par tour : 250 à 300 opérations juste pour vider et re-remplir la pile une seule fois.
+
+2. Pourquoi il faut autant de tours ?
+
+Ton code reproduit un Cocktail Shaker Sort (tri à bulles bidirectionnel) :
+• Lors de l'aller vers B, le plus grand élément descend tout au fond de B (c'est le comportement normal d'une bulle).
+• Mais lors du retour vers A, tu remets tout sur A : le plus petit élément remonte d'une seule case par tour (ou un élément mal placé loin du début met des dizaines de tours à traverser les 100 cases).
+• Sur ta liste précédente (où -39 était à l'index 69 et -46 à l'index 77), il faut ~260 tours complets pour faire remonter les nombres négatifs jusqu'au début du tableau :
+\(260\text{\ tours}\times \approx 265\text{\ opérations/tour}\approx 69\,227\text{\ opérations}\)
+
+3. Comment réduire drastiquement ce nombre d'opérations ?
+
+Si tu veux garder un algorithme simple en \(O(n^2)\) (comme le tri par insertion ou tri par sélection que le nom de ta fonction simple_algo_ins_sort suggère) sans faire 200 allers-retours inutiles :
+1. Cherche directement le minimum dans stack_a.
+2. Fais-le remonter au sommet de stack_a avec ra (s'il est dans la première moitié) ou rra (s'il est dans la seconde moitié).
+3. Envoie-le dans stack_b avec pb.
+4. Répète jusqu'à ce que stack_a soit vide, puis ramène tout avec pa.
+Sur 100 nombres, cette méthode prend environ 2 500 à 3 000 opérations (contre 70 000 actuellement), peu importe le disorder.
+Si tu veux optimiser cette fonction pour ton projet push_swap, je peux te montrer :
+• L'implémentation exacte du tri par sélection optimisé (ra/rra + pb) avec ta structure t_all
+• Comment adapter ton algorithme en tri par insertion (trier directement pendant le transfert vers stack_b)
+Dis-moi quelle approche tu préfères !
+
+
+./push_swap -50 -49 -47 -48 -45 -46 -44 -43 -42 -41 -39 -40 -37 -38 -35 -36 -33 -34 -32 -31 -30 -29 -28 -27 -26 -25 -24 -23 -21 -22 -19 -20 -18 -17 -15 -16 -14 -13 -12 -11 -10 -9 -8 -7 -6 -5 -4 -3 -2 -1 0 1 2 3 5 4 6 7 8 9 10 11 12 13 14 15 16 17 19 18 20 21 22 23 25 24 26 27 28 29 31 30 32 33 34 35 36 37 38 39 40 41 42 43 45 44 46 47 49 48
