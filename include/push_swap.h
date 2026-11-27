@@ -32,13 +32,25 @@ typedef	struct		s_all
 	int				sens;
 	int				nb_chunks;
 	int				chunk_size;
-	int				counterp;
 	int				chunk_min;
 	int				max_bites;
 	float			disorder_value;
 	char			**argv_copy;
 	int				argc_copy;
 	int				bool;
+	int				sa_count;
+	int				sb_count;
+	int				ss_count;
+	int				pa_count;
+	int				pb_count;
+	int				ra_count;
+	int				rb_count;
+	int				rr_count;
+	int				rra_count;
+	int				rrb_count;
+	int				rrr_count;
+	int				count_all_ops;
+	char			*strat;
 }					t_all;
 
 // MAIN & PARSING
@@ -56,6 +68,17 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	adaptive_algo(t_all *all);
 void	set_all(t_all *all, int argc);
+int		ft_print_string(char *s);
+int		ft_print_char(int i);
+int		ft_print_percent(char c);
+char	*ft_itoa(int n);
+int		ft_print_integer(int i, int *p);
+int		ft_print_unsigned_decimal(unsigned int i, int *p);
+int		ft_print_hex(unsigned int n, char *base, char c, int *p);
+int		ft_print_pointer(unsigned long n, char *base, int *p, int w);
+int		ft_check_nil(unsigned long n, int *p);
+int		ft_printf(const char *format, ...);
+void	set_all_bench_value(t_all *all);
 
 // DISORDER
 float	compute_disorder(t_all *all);

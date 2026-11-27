@@ -6,7 +6,7 @@
 /*   By: mafouche <mafouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:09:47 by mafouche          #+#    #+#             */
-/*   Updated: 2026/11/27 17:16:57 by mafouche         ###   ########.fr       */
+/*   Updated: 2026/11/27 18:38:59 by mafouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ra(t_all *all)
 		i++;
 	}
 	all->stack_a[all->fa + i] = newtmp;
-	all->counterp += 1;
+	all->ra_count += 1;
+	all->count_all_ops += 1;
 	if (all->bool == 0)
 		ft_putstr_fd("ra\n", 1);
 	return ;
@@ -48,7 +49,8 @@ void	rb(t_all *all)
 		i++;
 	}
 	all->stack_b[all->fb + i] = newtmp;
-	all->counterp += 1;
+	all->rb_count += 1;
+	all->count_all_ops += 1;
 	if (all->bool == 0)
 		ft_putstr_fd("rb\n", 1);
 	return ;
@@ -61,4 +63,6 @@ void	rr(t_all *all)
 	rb(all);
 	all->bool = 0;
 	ft_putstr_fd("rr\n", 1);
+	all->rr_count += 1;
+	all->count_all_ops += 1;
 }

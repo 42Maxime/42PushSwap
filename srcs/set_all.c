@@ -18,12 +18,28 @@ void	set_all(t_all *all, int argc)
 	all->sens = 0;
 	all->nb_chunks = 0;
 	all->chunk_size = 0;
-	all->counterp = 0;
 	all->chunk_min = 0;
 	all->max_bites = 0;
 	all->disorder_value = compute_disorder(all);
 	all->bool = 0;
+	set_all_bench_value(all);
 	fill_tsa(all);
+}
+
+void	set_all_bench_value(t_all *all)
+{
+	all->count_all_ops = 0;
+	all->sa_count = 0;
+	all->sb_count = 0;
+	all->ss_count = 0;
+	all->pa_count = 0;
+	all->pb_count = 0;
+	all->ra_count = 0;
+	all->rb_count = 0;
+	all->rr_count = 0;
+	all->rra_count = 0;
+	all->rrb_count = 0;
+	all->rrr_count = 0;
 }
 
 int	get_flag(t_all *all)
