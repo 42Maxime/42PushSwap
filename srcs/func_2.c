@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   func_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viroy <viroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mafouche <mafouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:09:47 by mafouche          #+#    #+#             */
-/*   Updated: 2026/11/26 11:43:37 by viroy            ###   ########.fr       */
+/*   Updated: 2026/11/27 17:16:57 by mafouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ra(t_all *all)
 	}
 	all->stack_a[all->fa + i] = newtmp;
 	all->counterp += 1;
-	//printf("ra\n");
+	if (all->bool == 0)
+		ft_putstr_fd("ra\n", 1);
 	return ;
 }
 
@@ -48,12 +49,16 @@ void	rb(t_all *all)
 	}
 	all->stack_b[all->fb + i] = newtmp;
 	all->counterp += 1;
-	//printf("rb\n");
+	if (all->bool == 0)
+		ft_putstr_fd("rb\n", 1);
 	return ;
 }
 
 void	rr(t_all *all)
 {
+	all->bool = 1;
 	ra(all);
 	rb(all);
+	all->bool = 0;
+	ft_putstr_fd("rr\n", 1);
 }

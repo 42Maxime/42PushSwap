@@ -39,10 +39,13 @@ int	find_min_value(t_all *all)
 			min = all->stack_a[all->fa + i];
 		i++;
 	}
+	if (i == 0)
+		return (0);
 	return (i - 1);
+	//ATTENTION
 }
 
-void	simple_algo_sort(t_all *all)
+void	simple_algo(t_all *all)
 {
 	int	min;
 	int	x;
