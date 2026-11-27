@@ -25,10 +25,28 @@ void	call_algo(t_all *all)
 int	main(int argc, char **argv)
 {
 	t_all all;
+	int i;
 
 	all.argv_copy = argv;
 	set_all(&all, argc);
+
+
+	while (i < all.tsa)
+	{
+		printf("[#%d] - %d\n", i, all.stack_a[i]);
+		i++;
+	}
+	printf("\n\n");
+
 	call_algo(&all);
+
+
+	i = 0;
+	while (i < all.tsa)
+	{
+		printf("[#%d] - %d\n", i, all.stack_a[i]);
+		i++;
+	}
 
 	return (free(all.stack_a), free(all.stack_b), 0);
 }
